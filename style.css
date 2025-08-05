@@ -1,0 +1,949 @@
+body{
+    background-color: #E6F1FF;
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+:root {
+    --primary-color: #51A2FF; /* Primary color for the theme */
+    --secondary-color: #00B2FF; /* Secondary color for the theme */
+    --text-color: #fff; /* Text color */
+    --background-color: #E6F1FF; /* Background color */
+}
+.darkMode {
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0; /* Light text color */
+    --primary-color: #2E93FF; /* Primary color for the theme */
+    --secondary-color: #B8DAFF; /* Secondary color for the theme */
+}
+#theme-switch{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Moon icon in light mode (black) */
+#theme-switch .darkMode {
+    filter: brightness(0); /* Makes the moon icon black */
+    background-color: transparent;
+    width: 30px; /* Adjust size as needed */
+    height: 30px;
+}
+/* Sun icon in dark mode (white) */
+#theme-switch .lightMode {
+    filter: brightness(0) invert(1); /* Makes the sun icon white */
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+}
+
+/* Hide dark mode image by default */
+#theme-switch .darkMode {
+    display: none;
+}
+/* Light mode - show dark mode icon */
+body:not(.darkMode) #theme-switch .lightMode {
+    display: none;
+}
+body:not(.darkMode) #theme-switch .darkMode {
+    display: block;
+}
+/* Dark mode - show light mode icon */
+body.darkMode #theme-switch .lightMode {
+    display: block;
+}
+
+body.darkMode #theme-switch .darkMode {
+    display: none;
+}
+
+.logo {
+    display: inline;
+    left: 20px;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    font-size: 28px;
+    font-weight: medium;
+    color:#51A2FF;
+    border-radius: 50%;
+}
+
+.auto-type{
+    color: #828C9F;
+    font-size: 25px;
+    font-weight: 200px;
+}
+body.darkMode .auto-type {
+    color: whitesmoke; /* Light text color in dark mode */
+}
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    max-height: 50px; /* Adjust height to fit content */
+    border-radius: 20px; /* Rounded corners for the navigation bar */
+}
+.off-screen-nav-menu{
+    list-style: none;  /* This removes the default bullets that appear in unordered lists (<ul>).*/
+    padding: 0;  /* This removes the default padding from the list. */
+    background-color: #00B2FF; /* This sets the background color of the menu to a dark shade. */
+    height: 50vh; /* This sets the height of the menu to 50% of the viewport height. */
+    width: 100%;
+    max-width: 150px;
+    position: fixed; /* This makes the menu stay in place when scrolling. */
+    top: 0; /* This positions the menu at the top of the page. */
+    right: -450px; /* This hides the menu off-screen to the right. */
+    display: flex; /* This makes the menu items appear in a single line instead of stacking vertically. */
+    flex-direction: column; /* This stacks the menu items vertically. */
+    justify-content: center; /* This centers the menu items vertically within the menu. */
+    align-items: center; /* This centers the menu items horizontally within the menu. */
+    text-align: center; /* This centers the text within each menu item. */
+    font-size: 20px; /* This sets the font size of the menu items. */
+    transition: .3s ease;
+    border-radius: 20px; /* This adds rounded corners to the menu. */
+}
+.off-screen-nav-menu.active {
+    right: 0; /* This brings the menu into view when it is active. */
+}
+
+.off-screen-nav-menu li {
+    display: flex; /* This makes the list items appear in a single line instead of stacking vertically. */
+    margin-right: 40px; /* This pushes the list items to the right side of the container. */
+
+}
+.off-screen-nav-menu a {
+    text-decoration: none; /* This removes the underline from the links. */
+     color: whitesmoke; /*  This sets the text color of the links. */ 
+    font-weight: bold; /* This makes the text bold. */
+    font-size: 16px; /* This sets the font size of the links. */
+}
+.ham-menu{
+    padding: none;
+    display:flex;
+}
+.hamburger {
+    width: 50px; /* Width of the hamburger icon */
+    height: 50px; /* Height of the hamburger icon */
+    border-radius: 20px; /* Rounded corners for the hamburger icon */
+    border: none; /* No border for the hamburger icon */
+    position: relative; /* Position relative to allow absolute positioning of lines */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-left: auto; /* Align hamburger to the right */
+    margin-right: 20px; /* Space between hamburger and right edge */
+    background: transparent; /* Transparent background for the hamburger icon */
+}
+.hamburger span {
+    height: 5px;
+    width: 100%;
+    background-color: #8AC0FF; /* Color of the hamburger lines */
+    background: transparent linear-gradient(90deg, #8AC0FF, #51A2FF); /* Gradient background for lines */
+    position: absolute; /* Position absolute to stack lines */
+    border-radius: 25px; /* Rounded corners for the lines */
+    border: transparent solid 1px; /* Border for the lines */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the lines */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+.hamburger span:nth-child(1) {
+    top: 25%; /* Position the first line */
+}
+.hamburger span:nth-child(3) {
+    top: 75%; /* Position the third line */
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(45deg); /* Rotate first line */
+    top: 50%; /* Center it vertically */
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0; /* Hide the middle line */
+}
+.hamburger.active span:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(-45deg); /* Rotate third line */
+    top: 50%; /* Center it vertically */
+}
+
+h1 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color:#51A2FF;
+    font-size: 30px;
+    font-weight: 800;
+    font-style: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h2{
+    font-size: 25px;
+    font-weight: 900;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+h4 {
+    font-size: 15px;
+    color: #51A2FF;
+    margin-top: 10px;
+    text-align: justify;
+}
+/* About me section */
+.welcome{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 22px;
+}
+.greeting{
+    font-size: 20px;
+    font-weight: 600;
+    color: #51A2FF;
+    background: transparent;
+    margin-top: 10px;
+    text-align: center;
+}
+body.darkMode .greeting {
+    color: #CCD0D8; /* Light text color in dark mode */
+}
+.container_picture{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the left */
+    max-width: 100%;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+body.darkMode .container_picture {
+    background-color: #38383D; /* Dark background for the container in dark mode */
+}
+.profile_picture{
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 10px; /* Space between image and text */
+    margin-left: 20px; /* Space between image and text */
+    object-fit: cover; /* Ensures the image covers the box without distortion */
+}
+.introduction{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center the text */
+    font-size: 16px;
+    color: #51A2FF;
+    margin-top: 10px;
+    text-align: justify;
+}
+.intro {
+    margin: 10; /* Remove default margin */
+    padding: 0 20px; /* Add horizontal padding for better readability */
+    font-size: 16px; /* Set font size */
+    color: grey; /* Text color */
+    line-height: 1.6; /* Line height for better readability */
+    text-align: justify; /* Justify text alignment */
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-style: light;
+}
+body.darkMode .intro {
+    color: snow; /* Light text color in dark mode */
+}
+/* technical skills sections */
+h3{
+    font-size: 25px;
+    font-weight: 700;
+    font-style: normal;
+    color: #51A2FF;
+    margin-top: 50px;
+} 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+} 
+p {
+    flex: 1 1 21%; /* Force about 4 per row */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 30%;
+    border-radius: 20px;
+    border: white solid 1px;
+    padding: 2px; 
+    background-color: #00B2FF;
+    font-size: 16px;
+    font-size: medium;
+    font-weight: 600;
+    color: whitesmoke;
+    line-height: 1.6;
+    margin-top: 1px;
+    gap: 10px;
+}
+h5 {
+    font-size: 14px;
+    color: grey;
+    margin-top: 10px;
+    text-align: center;
+}
+/* create css for academic projects */
+h2{
+    color: #51A2FF;
+    font-size: 25px;
+    font-weight: 700;
+    font-style: normal;
+    margin-top: 30px;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.layout{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0px 10px 0px;
+    padding: 10px;
+    gap: 50px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+.picture1{
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    object-fit: cover; /* Ensures the image covers the box without distortion */
+}
+.box1{
+    display: flex;
+    align-items: center;
+    justify-content: center;      
+    width: 400px;   
+    height: 400px;
+    padding: 20px;
+    flex-direction: column;
+}
+.Projectbox{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between; /* Better content distribution */
+    margin: 0 auto;
+    border-radius: 20px;
+    border: grey solid 1px;
+    width: 480px;
+    height: 450px;
+    padding: 15px;
+    background: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+.text1{
+    text-shadow: #bddbf9;
+    color:gray;
+    font-weight: 700;
+    font-size: 20px;
+    font-style: normal;
+    margin: auto;
+}
+body.darkMode .text1 {
+    color: #8AC0FF; /*Light text color in dark mode */
+}
+.Academic{
+    background-color: rgb(214, 231, 248);
+    color: gray;
+    border: #bddbf9;
+    border-radius: 300px;
+    width: 100px;
+    text-align: center;
+    margin: auto;
+    margin-left: 50px;
+
+}
+.content1{
+    font-weight: 400;
+    font-style: normal;
+    text-align: justify;
+    color:snow;
+    width: 465px;
+    height : 200px;
+    background-color: #E6F1FF;
+    color:#0065D1;
+    border-radius: 0px;
+    border: none;
+}
+body.darkMode .content1 {
+    background: transparent; /* Dark background for the content in dark mode */
+    color: white; /* Light text color in dark mode */
+}
+.skills_box{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.skills_1{
+    background-color:#00B2FF;
+    color:  whitesmoke;
+    border:#bddbf9;
+    width: 150px;
+    border-radius: 300px;
+    text-align: center;
+    margin: auto;
+}
+.skills_2{
+    background-color: #00B2FF;
+    color: whitesmoke;
+    border:#bddbf9;
+    width: 150px;
+    text-align: center;
+    border-radius: 200px;
+    margin: auto;
+}
+.skills_3{
+    background-color:#00B2FF;
+    color: whitesmoke;
+    border:#bddbf9;
+    text-align: center;
+    width: 150px;
+    border-radius: 200px;
+    margin: auto;
+}
+/* Styling for box2 */
+.box2{
+    display: flex;
+    align-items: center;
+    justify-content: center;      
+    width: 400px;   
+    height: 400px;
+    padding: 20px;
+    flex-direction: column;
+}
+.Projectbox2{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between; /* Better content distribution */
+    margin: 0 auto;
+    border-radius: 20px;
+    border: grey solid 1px;
+    width: 480px;
+    height: 450px;
+    padding: 15px;
+    background: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.picture2{
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    object-fit: cover; /* Ensures the image covers the box without distortion */
+}
+.title2{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 8px;
+}
+.text2{
+    text-shadow: #bddbf9;
+    color:gray;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    margin: auto;
+}
+body.darkMode .text2 {
+    color: #8AC0FF; /*Light text color in dark mode */
+}
+a{
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent element */
+}
+.Academic2{
+    background-color: rgb(214, 231, 248);
+    color: gray;
+    border: #bddbf9;
+    border-radius: 300px;
+    width: 100px;
+    text-align: center;
+    margin: auto;  
+}
+.content2{
+    font-weight: 400;
+    font-style: normal;
+    text-align: justify;
+    color:snow;
+    width: 465px;
+    height : 200px;
+    background-color: #E6F1FF;
+    color:#0065D1;
+    border-radius: 0px;
+    border: none;
+}
+body.darkMode .content2 {
+    background: transparent; /* Dark background for the content in dark mode */
+    color: white; /* Light text color in dark mode */
+}
+.skills_box2{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.skills_4{
+    background-color: #00B2FF;
+    color: whitesmoke;
+    border:#bddbf9;
+    width: 150px;
+    text-align: center;
+    border-radius: 200px;
+    margin: auto;
+}
+.skills_5{
+    background-color: #00B2FF;
+    color: whitesmoke;
+    border:#bddbf9;
+    width: 150px;
+    text-align: center;
+    border-radius: 200px;
+    margin: auto;
+}
+.skills_6{
+    background-color: #00B2FF;
+    color: whitesmoke;
+    border:#bddbf9;
+    width: 150px;
+    text-align: center;
+    border-radius: 200px;
+    margin: auto;
+}
+/* styling for box3 */
+.box3{
+    display: flex;
+    align-items: center;
+    justify-content: center;      
+    width: 400px;   
+    height: 400px;
+    padding: 20px;
+    flex-direction: column;
+}
+.Projectbox3{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between; /* Better content distribution */
+    margin: 0 auto;
+    border-radius: 20px;
+    border: grey solid 1px;
+    width: 480px;
+    height: 450px;
+    padding: 15px;
+    background: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.picture3{
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    object-fit: cover; /* Ensures the image covers the box without distortion */
+}
+.title3{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 8px;
+}
+body.darkMode .text3 {
+    color: #8AC0FF; /*Light text color in dark mode */
+}
+.text3{
+    text-shadow: #bddbf9;
+    color:gray;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    margin: auto;
+}
+.Academic3{
+    background-color: rgb(214, 231, 248);
+    color: gray;
+    border: #bddbf9;
+    border-radius: 300px;
+    width: 100px;
+    text-align: center;
+    margin: auto;  
+}
+.content3{
+    font-weight: 400;
+    font-style: normal;
+    text-align: justify;
+    color:snow;
+    width: 465px;
+    height : 200px;
+    background-color: #E6F1FF;
+    color:#0065D1;
+    border-radius: 0px;
+    border: none;
+}
+body.darkMode .content3 {
+    background: transparent; /* Dark background for the content in dark mode */
+    color: white; /* Light text color in dark mode */
+}
+.skills_box3{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.skills_7{
+    background-color: #00B2FF;
+    color: whitesmoke;
+    border:#bddbf9;
+    width: 150px;
+    text-align: center;
+    border-radius: 200px;
+    margin: auto;
+}
+.skills_8{
+    background-color: #00B2FF;
+    color: whitesmoke;
+    border:#bddbf9;
+    width: 150px;
+    text-align: center;
+    border-radius: 200px;
+    margin: auto;
+}
+.skills_9{
+    background-color: #00B2FF;
+    color: whitesmoke;
+    border:#bddbf9;
+    width: 150px;
+    text-align: center;
+    border-radius: 200px;
+    margin: auto;
+}
+/* styling for carousel */
+.carousel {
+   position:relative;
+   height : 500px;
+   width: 100%;
+   margin: 20px auto;
+   overflow: hidden; /* Hide the overflow of the carousel container */
+}
+.carousel_track-container {
+   height:450px;
+   position: relative;
+   width: 50%;
+   margin: 0 auto; /* Center the carousel */
+}
+.carousel_track {
+   padding: 0;
+   margin: 0;
+   list-style: none;
+   position: relative;
+   height: 100%;
+   transition: transform 0.5s ease-in-out; /* Smooth transition for slide change */
+}
+/* Make sure slides are properly positioned */
+.carousel_slide {
+   position: absolute;
+   top: 0;
+   left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel_button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    display: flex;
+    /* create cursor for mouse moving to the arrow */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.carousel_button_left {
+    left: 10px;
+    z-index: 1;
+    cursor: pointer;
+}
+.carousel_button_right{
+    right: 10px;
+    z-index: 1; /* Ensure buttons are above the slides */
+    cursor: pointer;
+}
+.carousel_nav{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background: transparent;
+    width: 80%;
+}
+.carousel_indicator {
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    transition: background 0.3s ease;
+}
+/* Dark mode indicators */
+body.darkMode .carousel_indicator {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.carousel_indicator.current-slide{
+    background: rgba(0,0,0,0.8);
+}
+
+body.darkMode .carousel_indicator.current-slide {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Carousel arrows */
+.carousel_button img {
+    filter: brightness(0) saturate(100%);
+}
+
+/* Dark mode arrows */
+body.darkMode .carousel_button img {
+    filter: brightness(0) invert(1);
+}
+.carousel_indicator:hover {
+    background-color: var(--primary-color) ;
+}
+.is-hidden {
+    display: none;
+}
+
+/* contact section */
+/* Updated Contact Section */
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 90%;
+    width: 1200px; /* Set a maximum width for the container */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-height: 800px; /* Adjust height to fit content */
+  }
+  body.darkMode .contact-container {
+    background-color: #38383D; /* Dark background for the container in dark mode */
+  }
+  .contact-left{
+    margin-top: 50px;
+  }
+.contact-right h1{
+    font-weight: 800;
+    color: #51A2FF;
+    font-size: 30px;
+    margin-bottom: 5px;
+    align-items: justify;
+    display: flex;
+    flex-direction: center;
+}
+
+.contact-right hr{
+    width: 100px;
+    height: 2px;
+    background-color: #51A2FF;
+    border: none;
+    border-radius: 20px;
+    margin: auto;
+    display: flex;
+    margin-right: 200px;
+}
+.contact-container textarea{
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 20px;
+}
+
+.contact-text {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    display: flex;
+    margin-left: 300px;
+
+  }
+  
+  body.darkMode .contact-text {
+    color: #CCD0D8;
+  }
+  .contact-input {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border: 2px solid #51A2FF;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-left: 100px; /* Adjusted margin for better alignment */
+    color: #FAA18F; /* Dark text color for input */
+  }
+/* when the mouse move to the contact-input, the color will change */
+.contact-input:hover{
+    border: 2px solid lightsalmon;
+}
+body.darkMode .contact-input {
+    border: 2px solid #51A2FF; /* Lighter border in dark mode */
+    background-color: #38383D; /* Dark background for input in dark mode */
+    color: #E6F1FF; /* Light text color in dark mode */
+}
+.contact-input:focus {
+    border-color: #0065D1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(81, 162, 255, 0.2);
+  }
+
+.contact-container::placeholder{
+    color: #a9a9a9;
+}
+.contact-container label {
+    display: block;
+    margin-bottom: 2px;
+    color: #51A2FF;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 100px; /* Adjusted margin for better alignment */
+  }
+  
+  body.darkMode .contact-container label {
+    color: #B8DAFF;
+  }
+.contact-container button{
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color:#E6F1FF;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #51A2FF, #00B2FF);
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+}
+
+.submit_button {
+    display: flex;
+    justify-content: center;
+  }
+/* contact-right */
+.contact-right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 20px;
+    min-width: 300px; /* Ensure it doesn't shrink too much */
+    margin: auto;
+}
+.contact-right h1 {
+    font-weight: 600;
+    color: #51A2FF;
+    font-size: 25px;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-self: center;
+    margin-right: 180px; /* Adjusted margin for better alignment */
+}
+.contact-container h4{
+    margin-right: 95px; /* Adjusted margin for better alignment */
+}
+.contact-container h5{
+    margin-right: 95px;
+    margin-left: 300px; /* Adjusted margin for better alignment */;
+    margin-top: -10px; /* Adjusted margin for better alignment */
+}
+.contact-container h3{
+    font-weight: 600;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-right: 150px; /* Adjusted margin for better alignment */
+    margin-top: 15px;
+}
+.contact-right img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+  margin-right: 220px; /* Adjusted margin for better alignment */
+  
+}
+.contact-right img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+.response{
+    display: flex;
+    flex-direction: column;
+}
+.reserved_right{
+    font-size: 15px;
+    font-style: italic;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-container {
+      flex-direction: column;
+      align-items: center;
+      max-height: fit-content; /* Allow height to adjust based on content */
+      padding-right: 100px;
+      padding-left: 50px;
+    }
+    
+    .contact-left, .contact-right {
+      width: 100%;
+    }
+  }

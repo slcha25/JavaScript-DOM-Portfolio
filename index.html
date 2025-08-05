@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandra Chan - Full stack Developer Trainee Portfolio</title>
+    <!-- Link to style.css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- link to JavaScript -->
+    <script src="update.js" defer></script>
+    <!-- link to google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <button id="theme-switch" aria-label="Toggle dark mode">
+        <img class=lightMode src="/asset/light_mode.png" alt="Light Mode">
+        <img class=darkMode src="/asset/dark_mode.png" alt="Dark Mode">
+    </button>
+    <!-- Navigation Bar -->
+    <div class="App">
+        <div class="nav-container">
+            <h1 class="logo">Sandra Chan's Portfolio</h1>
+            <ul class="off-screen-nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <nav class="ham-menu">
+                <button class="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+            </nav>
+        </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section add id="home" to link the hamburger menu-->
+    <h1>Hi I'm Sok Leng Chan </h1>
+    <div id="home" class="container">
+        <h2><span class="auto-type"></span></h2>
+        <!-- Load library from the CDN -->
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <!-- create autotype in the webpage -->
+        <script>
+            var typed = new Typed('.auto-type', {
+                strings: ["Data Scientist", "Full Stack Developer Trainee", "Data Analyst"],
+                typeSpeed: 150,
+                backSpeed: 125,
+                loop: true
+            });
+        </script>
+    </div>
+
+    <!-- Introduction Section -->
+    <div id="about" class="Intro-box">
+        <h3 class="welcome">Welcome to my portfolio!</h3>
+        <h4 class="greeting">I'm excited to share my journey as a Full Stack Developer Trainee and Data Scientist. Here,
+            you'll find a showcase of my skills, projects, and experiences that reflect my passion for technology and
+            innovation.</h4>
+
+        <div class="container_picture">
+            <img class="profile_picture" src="/asset/IMAG1268.jpg" alt="Sandra Chan's Profile Picture" width="300px">
+            <div class="introduction">
+                <h4 class="intro">Student at Npower with a passion for bridging the gap between data science and
+                    practical application development. My academic foundation includes a Bachelor's degree in Economics
+                    with a minor in Mathematics, which has given me a unique analytical perspective on problem-solving.
+                </h4>
+                <h4 class="intro">With a Certificate in Applied Data Science, I've developed proficiency in Python, SQL,
+                    R, HTML, CSS, and Jupyter Notebook. I love transforming complex data insights into meaningful
+                    applications that can make a real difference.</h4>
+                <h4 class="intro">When I'm not coding or analyzing data, you'll find me listening to music, watching
+                    movies and dramas, or playing basketball. These activities help me stay creative and maintain a
+                    balanced perspective that I bring to my technical work.</h4>
+            </div>
+        </div>
+
+        <h3>Technical skills:</h3>
+        <div class="skills">
+            <div class="row">
+                <p>Python</p>
+                <p>SQL</p>
+                <p>R</p>
+                <p>HTML</p>
+            </div>
+            <div class="row">
+                <p>CSS</p>
+                <p>JavaScript</p>
+                <p>React</p>
+                <p>Jupyter Notebook</p>
+            </div>
+        </div>
+        <div>
+            <div id="projects">
+                <h2>Academic Projects</h2>
+                <div class="carousel">
+                    <button class="carousel_button carousel_button_left is-hidden"><img src="/asset/left-arrow.png"
+                            alt="left" width="30px"></button>
+
+                    <div class="carousel_track-container">
+                        <ul class="carousel_track">
+                            <li class="carousel_slide current slide">
+                                <div class="layout">
+                                    <div class="box1">
+                                        <div class="Projectbox">
+                                            <img class="picture1" src="/asset/I-dol_music.png"
+                                                alt="I-dol Music streaming platform database">
+                                            <div class="title">
+                                                <h3 class="text1">
+                                                    <a href="https://github.com/slcha25/I-dol-Music-Streaming-Platform-Project"
+                                                        target="_blank">I-dol Music Streaming Platform</a>
+                                                </h3>
+                                                <span class="Academic">Academic</span>
+                                            </div>
+                                            <p class="content1"> Designed a comprehensive database system from
+                                                conceptual to normalized logical model using SQL. Built and managed
+                                                database tables, stored procedures, views, and functions with focus on
+                                                data integrity.</p>
+                                            <div class="skills_box">
+                                                <span class="skills_1">SQL</span>
+                                                <span class="skills_2">Data Management</span>
+                                                <span class="skills_3">Database Design</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="carousel_slide">
+                                <div class="box2">
+                                    <div class="Projectbox2">
+                                        <img class="picture2" src="/asset/San_Bookstore.png" alt="San's Bookstore">
+                                        <div class="title2">
+                                            <h3 class="text2">
+                                                <a href="https://github.com/slcha25/DOM_Bookstore" target="_blank">San's
+                                                    Bookstore</a>
+                                            </h3>
+                                            <span class="Academic2">Academic</span>
+                                        </div>
+                                        <p class="content2">An interactive bookstore interface that dynamically
+                                            retrieves book data from an API and presents it in a clean, responsive table
+                                            layout built with HTML, CSS, and JavaScript.</p>
+                                        <div class="skills_box2">
+                                            <span class="skills_4">Html</span>
+                                            <span class="skills_5">CSS</span>
+                                            <span class="skills_6">JavaScript(DOM)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="carousel_slide">
+                                <div class="box3">
+                                    <div class="Projectbox3">
+                                        <img class="picture3" src="/asset/portfolio.png"
+                                            alt="Data Analysis Project using Python">
+                                        <div class="title3">
+                                            <h3 class="text3">
+                                                <a href="https://github.com/slcha25/myportfolio" target="_blank">Full
+                                                    stuck developer Portfolio</a>
+                                            </h3>
+                                            <span class="Academic3">Academic</span>
+                                        </div>
+                                        <p class="content3">Designed and developed my personal portfolio using HTML and
+                                            CSS and JavaScript(DOM).</p>
+                                        <div class="skills_box3">
+                                            <span class="skills_7">Html</span>
+                                            <span class="skills_8">CSS</span>
+                                            <span class="skills_9">JavaScript</span>
+                                        </div>
+                                    </div>
+                        </ul>
+                    </div>
+
+                    <!-- add carousel_button_right -->
+
+                    <button class="carousel_button carousel_button_right"><img src="/asset/right-arrow.png" alt="right"
+                            width="30px"></button>
+
+                    <!--add carousel_nav  -->
+                    <div class="carousel_nav">
+                        <button class="carousel_indicator current-slide"></button>
+                        <button class="carousel_indicator"></button>
+                        <button class="carousel_indicator"></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact section -->
+            <div id="contact" class="contact-container">
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact" target="_blank">
+                    <div class="contact-left">
+                    </div>
+                    <input type="hidden" name="access_key" value="c573cda8-2be6-49c8-9675-496a0dcc3fbb">
+                    <label>Name:</label>
+                    <br>
+                    <input type="text" name="name" placeholder="Your Name" class="contact-input" required>
+                    <br>
+                    <label>Email:</label>
+                    <br>
+                    <input type="email" name="email" placeholder="Your Email" class="contact-input" required>
+                    <br>
+                    <label>Your message:</label>
+                    <br>
+                    <textarea name="message" placeholder="Your Message" class="contact-input" required></textarea>
+                    <div class="submit_button">
+                        <button type="submit" class="button">Send message</button>
+                    </div>
+                </form>
+                <div class="contact-right">
+                    <h1>Let's Connect</h1>
+                    <hr>
+                    <h4 class="contact-text">I'm always open to discussing new opportunities, interesting projects, or
+                        potential collaborations. Whether you have a question, want to work together, or just want to
+                        say hello, feel free to reach out!</h4>
+                    <!-- img can't directly link to external website, need to <a> link it -->
+                    <a href="https://github.com/slcha25/" target="_blank">
+                        <img class="gitHub" src="/asset/GitHub.jpg" alt="GitHub" width="50px" height="50px">
+                    </a>
+                    <a href="https://www.linkedin.com/in/sok-chan/" target="_blank">
+                        <img class="linkedIn" src="/asset/LinkedIn" alt="LinkedIn" width="50px" height="50px">
+                    </a>
+                    <a href="mailto:s.leng.chan@outlook.com">
+                        <img class="eMail" src="/asset/email.jpg" alt="Email" width="50px" height="50px">
+                    </a>
+                    <div class="response">
+                        <h3>Response Time</h3>
+                        <h5>I typically respond within 24 hours. For urgent matters, feel free to connect with me on
+                            LinkedIn.</h5>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <h5 class="reserved_right">© 2025 Sandra Chan. All rights reserved.</h5>
+        </div>
+</body>
+
+</html>
