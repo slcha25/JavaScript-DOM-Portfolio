@@ -62,7 +62,7 @@ To run this portfolio locally on your machine:
 - **Project Carousel**: The script calculates slide positions and handles navigation (next/prev buttons and indicator dots) with smooth transitions.
 - **Contact Form**: On submission, the form data is sent to Web3Forms, which forwards it to your configured email address. The form then resets and shows an alert.
 
-## 📞 Contact
+## :mailbox: Contact :wink:
 - [LinkedIn](https://www.linkedin.com/in/sok-chan/)
 - [GitHub](https://github.com/slcha25)
 
