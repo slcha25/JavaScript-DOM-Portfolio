@@ -13,7 +13,7 @@ A responsive, modern, and accessible personal portfolio website built with pure 
   - Smooth scrolling navigation
   - Animated typing effect on the hero section
   - Interactive project carousel
-  - Functional contact form (using web3Forms)
+  - Functional contact form [using web3Forms](https://web3forms.com/)
 - **Modern UI/UX**: clean design with a cohesive color scheme and intuitive layout
 - **Accessibility considerations**: include ARIA labels and semantic HTML for better screen reader support.
 
@@ -22,7 +22,7 @@ A responsive, modern, and accessible personal portfolio website built with pure 
 - **Styling**: Pure CSS (Flexbox, CSS Grid, Custome Properties for theming)
 - **JavaScript Libraries**:
   - [Typed.js](https://github.com/mattboldt/typed.js/) - For the typing animation in the hero section.
-  - [Web3Forms] - For the functional contact form without a backend.
+  - [Web3Forms](https://web3forms.com/) - For the functional contact form without a backend.
 - Fonts: [Google Fonts Nunito](https://fonts.google.com/)
 - Icons: Custom and local SVG/PNG
 
